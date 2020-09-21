@@ -1,21 +1,25 @@
 ---
-title: "Simple document"
-output: html_document
+title: "Data Import"
+output: github_document
 ---
 
-I'm an R Markdown document! 
+```{r setup}
+library(tidyverse)
 
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
-
-```{r}
-samp = rnorm(100)
-length(samp)
 ```
 
-# Section 2
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+##Read in some data
+
+Read in the litters dataset
+
+```{r read in litters}
+litters_df = read_csv("./data/FAS_litters.csv")
+#read_csv is a fucntion in the readr package
+#the "." means from the folder where the R project file is located, aka. start here
+litters_df
+
+#below start the data cleaning from rename the variables:
+litters_df = janitor::clean_names(litters_df)
+#janitor is another package that need to be loaded here, double ":" to load, and that use the function "clean_name" in jamitor. 
+

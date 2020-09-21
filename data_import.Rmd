@@ -23,3 +23,5 @@ litters_df
 litters_df = janitor::clean_names(litters_df)
 #janitor is another package that need to be loaded here, double ":" to load, and that use the function "clean_name" in jamitor. 
 
+```
+

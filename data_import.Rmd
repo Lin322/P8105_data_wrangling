@@ -6,6 +6,7 @@ output: github_document
 ```{r setup}
 library(tidyverse)
 library(readxl)
+library(haven)
 
 ```
 
@@ -67,5 +68,32 @@ litters_df = read_csv("./data/FAS_litters.csv", na = c("", "NA", ".", 999))
 library(readxl)#also in the top of the file, integrate all the package that will be used more than once
 mlb_df = read_excel("./data/mlb11.xlsx")
 mlb_df
+
+#use ?read_excel() to find the specific function like range and sheet for excel file
+mlb_df = read_excel("./data/mlb11.xlsx", range = "A1:F7")
 ```
+
+
+###read in SAS file
+```{r}
+library(haven)
+pulse_df = read_sas("./data/public_pulse_data.sas7bdat")
+```
+
+
+##comparison with base R
+
+what about read.csv...? which is build in R and no need to load packages.
+well, neven use that. 
+
+```{r}
+litters_base = read.csv("./data/FAS_litters.csv")
+litters_readr = read_csv("./data/FAS_litters.csv")
+
+litters_base
+litters_readr
+
+
+```
+
 

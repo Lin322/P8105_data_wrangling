@@ -16,6 +16,7 @@ Read in the litters dataset
 ```{r read_in_litters}
 litters_df = read_csv("./data/FAS_litters.csv")
 #read_csv is a fucntion in the readr package
+#csv=comma, seperated values. 
 #the "." means from the folder where the R project file is located, aka. start here
 litters_df
 
@@ -40,5 +41,23 @@ tail(litters_df)
 skimr::skim(litters_df)
 #give a brief look of the basic data descriptive infomation like missing, means, and histgram, ect. 
 #also wa can type "view(litters_df"in cosole instead of rmd chunk to open a new window of the dataset. (open new window in rmd will make knit harder)
+```
+
+
+
+## Options in read.csv
+
+One can always check out the help tab (?read.csv()) for more details. 
+
+```{r}
+litters_df = read_csv("./data/FAS_litters.csv", skip = 10, col_names = FALSE)
+#skip the first 10 rows (including the variable name row), can use this if the start rows have some mess
+litters_df
+
+
+litters_df = read_csv("./data/FAS_litters.csv", na = c("", "NA", ".", 999))
+#for all items in the collection (c means collection), R will treat that as missing data. 
+
+
 ```
 

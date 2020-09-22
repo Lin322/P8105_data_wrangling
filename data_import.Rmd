@@ -5,6 +5,7 @@ output: github_document
 
 ```{r setup}
 library(tidyverse)
+library(readxl)
 
 ```
 
@@ -47,7 +48,7 @@ skimr::skim(litters_df)
 
 ## Options in read.csv
 
-One can always check out the help tab (?read.csv()) for more details. 
+One can always check out the help tab (?read.csv()) for more details by typing ?read_csv in console
 
 ```{r}
 litters_df = read_csv("./data/FAS_litters.csv", skip = 10, col_names = FALSE)
@@ -57,7 +58,14 @@ litters_df
 
 litters_df = read_csv("./data/FAS_litters.csv", na = c("", "NA", ".", 999))
 #for all items in the collection (c means collection), R will treat that as missing data. 
+```
 
 
+##read in other format
+###read in excel file
+```{r}
+library(readxl)#also in the top of the file, integrate all the package that will be used more than once
+mlb_df = read_excel("./data/mlb11.xlsx")
+mlb_df
 ```
 

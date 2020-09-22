@@ -13,7 +13,7 @@ library(tidyverse)
 
 Read in the litters dataset
 
-```{r read in litters}
+```{r read_in_litters}
 litters_df = read_csv("./data/FAS_litters.csv")
 #read_csv is a fucntion in the readr package
 #the "." means from the folder where the R project file is located, aka. start here
@@ -21,7 +21,24 @@ litters_df
 
 #below start the data cleaning from rename the variables:
 litters_df = janitor::clean_names(litters_df)
-#janitor is another package that need to be loaded here, double ":" to load, and that use the function "clean_name" in jamitor. 
+#janitor is another package that need to be loaded here, double ":" to load, and that use the function "clean_name" in jamitor to rename the variables into snake_form. 
 
+```
+
+## Take a look at the data
+
+Print in console
+```{r}
+litters_df
+```
+
+```{r}
+head(litters_df)
+tail(litters_df)
+```
+```{r}
+skimr::skim(litters_df)
+#give a brief look of the basic data descriptive infomation like missing, means, and histgram, ect. 
+#also wa can type "view(litters_df"in cosole instead of rmd chunk to open a new window of the dataset. (open new window in rmd will make knit harder)
 ```
 

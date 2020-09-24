@@ -15,3 +15,34 @@ litters_df=janitor::clean_names(litters_df)
 litters_df
 ```
 
+##`select`
+
+choose some columns form the dataframe. 
+```{r}
+select(litters_df, group, litter_number, gd0_weight:gd_of_birth)
+#use the ":" to select a range of columns 
+
+select(litters_df, -litter_number)
+#get rid of "litter_number only"
+```
+
+Renaming: 
+
+```{r}
+select(litters_df, GROUP=group, LITTER_NUM=litter_number)
+
+#Or rename without select in dplyr: 
+rename(litters_df, GROUP=group, LITTER_NUM=litter_number)
+```
+
+Select helper
+
+```{r}
+select(litters_df, starts_with("gd"))
+
+select(litters_df, litter_number, everything())
+#left everything except litter_number
+
+relocate(litters_df, litter_number)
+```
+

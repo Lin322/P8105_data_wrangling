@@ -46,3 +46,14 @@ select(litters_df, litter_number, everything())
 relocate(litters_df, litter_number)
 ```
 
+##`filter`
+```{r}
+filter(litters_df, gd0_weight <= 22)
+
+filter(litters_df, !(gd0_weight == 20))
+#"!" to filter out gd0_weight = 20
+
+
+
+```
+
